@@ -1,7 +1,7 @@
-from pickle import FALSE
-import pygame
-import random
-import time
+from funcoes import pygame, random, time, dados
+
+dados()
+
 pygame.init()
 
 largura = 1076
@@ -30,7 +30,7 @@ gameEvents = pygame.event
 
 def dead(pontos):
 
-    gameDisplay.blit(bg_destroy, (0, 100))
+    gameDisplay.blit(bg_destroy, (0, 0))
     pygame.mixer.music.stop()
     pygame.mixer.Sound.play(impactoSound)
     fonte = pygame.font.Font("Spongeboy Me Bob.ttf", 24)
@@ -67,8 +67,6 @@ def jogo():
 
     alturaBob = 143
     larguraBob = 190
-    alturaPlank = 196
-    larguraPlank = 150
 
     jogando = True
     virouEsquerda = True
