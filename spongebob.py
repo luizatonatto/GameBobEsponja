@@ -30,7 +30,7 @@ gameEvents = pygame.event
 
 def dead(pontos):
 
-    gameDisplay.blit(bg_destroy, (0, 20))
+    gameDisplay.blit(bg_destroy, (0, 100))
     pygame.mixer.music.stop()
     pygame.mixer.Sound.play(impactoSound)
     fonte = pygame.font.Font("Spongeboy Me Bob.ttf", 24)
@@ -71,6 +71,7 @@ def jogo():
     larguraPlank = 150
 
     jogando = True
+    virouEsquerda = True
 
     while True:
         # aqui é lido os eventos da tela
@@ -82,11 +83,15 @@ def jogo():
                 if event.key == pygame.K_RETURN:
                     jogo()
                 if event.key == pygame.K_LEFT:
-                    movimentoXBob = -15
-                    bob = pygame.transform.flip(bob, True, False)
+                    movimentoXBob = - 15
+                    if virouEsquerda == False:
+                        bob = pygame.transform.flip(bob, True, False)
+                        virouEsquerda = True
                 elif event.key == pygame.K_RIGHT:
                     movimentoXBob = 15
-                    bob = pygame.transform.flip(bob, True, False)
+                    if virouEsquerda == True:
+                        virouEsquerda = False
+                        bob = pygame.transform.flip(bob, True, False)
                 elif event.key == pygame.K_UP:
                     movimentoYBob = -15
                 elif event.key == pygame.K_DOWN:
