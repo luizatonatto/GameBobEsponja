@@ -11,14 +11,14 @@ pygameDisplay = pygame.display
 
 pygameDisplay.set_caption("BOB ESPONJA CALÇA QUADRADA")
 gameDisplay = pygame.display.set_mode(tamanho)
-gameIcon = pygame.image.load("bobicon.ico")
+gameIcon = pygame.image.load("assets/bobicon.ico")
 pygameDisplay.set_icon(gameIcon)
 
-bg = pygame.image.load("fundo.png")
-bg_destroy = pygame.image.load("gif.jpg")
+bg = pygame.image.load("assets/fundo.png")
+bg_destroy = pygame.image.load("assets/gif.jpg")
 # Aqui Começa o jogo
 
-impactoSound = pygame.mixer.Sound("perda.mp3")
+impactoSound = pygame.mixer.Sound("assets/perda.mp3")
 impactoSound.set_volume(0.5)
 
 black = (0, 0, 0)
@@ -33,8 +33,8 @@ def dead(pontos):
     gameDisplay.blit(bg_destroy, (0, 0))
     pygame.mixer.music.stop()
     pygame.mixer.Sound.play(impactoSound)
-    fonte = pygame.font.Font("Spongeboy Me Bob.ttf", 24)
-    fonteContinue = pygame.font.Font("Spongeboy Me Bob.ttf", 24)
+    fonte = pygame.font.Font("assets/Spongeboy Me Bob.ttf", 24)
+    fonteContinue = pygame.font.Font("assets/Spongeboy Me Bob.ttf", 24)
 
     texto = fonte.render("Você Perdeu com "+str(pontos) +
                          " pontos!", True, white)
@@ -57,11 +57,11 @@ def jogo():
     movimentoXBob = 0
     movimentoYBob = 0
     pontos = 0
-    plankton = pygame.image.load("plankton.png")
-    bob = pygame.image.load("bob.png")
+    plankton = pygame.image.load("assets/plankton.png")
+    bob = pygame.image.load("assets/bob.png")
 
     plankton = pygame.transform.flip(plankton, True, False)
-    pygame.mixer.music.load("trilha.mp3")
+    pygame.mixer.music.load("assets/trilha.mp3")
     pygame.mixer.music.play(-1)
     pygame.mixer.music.set_volume(1)
 
@@ -137,7 +137,7 @@ def jogo():
             gameDisplay.blit(plankton, (posicaoX, posicaoY))
             gameDisplay.blit(bob, (posicaoXBob, posicaoYBob))
 
-            fonte = pygame.font.Font("Spongeboy Me Bob.ttf", 24)
+            fonte = pygame.font.Font("assets/Spongeboy Me Bob.ttf", 24)
             texto = fonte.render("Pontos: "+str(pontos), True, white)
             gameDisplay.blit(texto, (20, 20))
 
